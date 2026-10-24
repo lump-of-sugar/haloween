@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15191e">
+  <title>ミッション・ポータル</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="site-shell">
+    <section class="hero" id="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">MISSION CONTROL</p>
+        <h1 id="page-title">ミッション・ポータル</h1>
+        <p id="intro-text" class="intro-text">ここにイベントの導入文を記載します。参加者は下の3つのミッションに挑戦してください。</p>
+        <div class="final-password" id="final-password" hidden>
+          <span class="final-label">FINAL PASSWORD</span>
+          <span id="final-password-value" class="final-value">---</span>
+          <p id="final-message">すべてのミッションをクリアしました。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="missions-section" aria-labelledby="mission-heading">
+      <div class="section-heading">
+        <h2 id="mission-heading">ミッション一覧</h2>
+        <p>各ミッションをクリアして、文字を集めよう。</p>
+      </div>
+      <div class="mission-grid" id="mission-grid">
+        <!-- ミッションボタンは main.js から生成されます -->
+      </div>
+      <p class="progress-text" id="progress-text" aria-live="polite">クリア状況：0 / 3</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>イベント名や注意事項などをここに記載できます。</p>
+    </footer>
+  </main>
+
+  <div class="modal-backdrop" id="mission-modal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close" type="button" aria-label="閉じる">×</button>
+      <p class="eyebrow" id="modal-eyebrow">MISSION</p>
+      <h2 id="modal-title">ミッション名</h2>
+      <div id="modal-description" class="modal-description">
+        ここにミッションの遊び方や注意事項を記載します。
+      </div>
+      <div class="password-area">
+        <h3>獲得したアルファベットを選択</h3>
+        <p class="helper-text">プレイ後に得られたアルファベットを選んでください。</p>
+        <div class="letter-grid" id="letter-grid" aria-label="アルファベット選択"></div>
+        <p class="selection-status" id="selection-status" aria-live="polite">文字が選択されていません。</p>
+        <button class="primary-button" id="submit-answer" type="button" disabled>決定</button>
+      </div>
+      <p class="modal-feedback" id="modal-feedback" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
