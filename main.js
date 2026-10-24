@@ -10,30 +10,30 @@
 const CONFIG = {
   pageTitle: "ミッション・ポータル",
   introText: "ここにイベントの導入文を記載します。\n参加者は下の3つのミッションに挑戦し、文字を集めてください。",
-  finalPassword: "ABC", // 最終パスワード表示用。必要に応じて変更してください。
+  finalPassword: "J-o'-L", // 最終パスワード表示用。必要に応じて変更してください。
   finalMessage: "すべてのミッションをクリアしました。最終パスワードを確認してください。",
   missions: [
     {
       id: "mission-1",
-      floor: "1F",
+      floor: "3F",
       title: "第1ミッション",
-      answer: "K", // 正解のアルファベットに変更
+      answer: "J", // 正解のアルファベットに変更
       icon: "mission_1_icon.jpg",
       description: "【遊び方】\nここに第1ミッションのルールや、プレイする場所、注意事項などを記載します。\n\nプレイ後に得られたアルファベットを選択してください。"
     },
     {
       id: "mission-2",
-      floor: "2F",
+      floor: "4F",
       title: "第2ミッション",
-      answer: "M", // 正解のアルファベットに変更
+      answer: "O", // 正解のアルファベットに変更
       icon: "mission_2_icon.jpg",
       description: "【遊び方】\nここに第2ミッションのルールや、プレイする場所、注意事項などを記載します。\n\nプレイ後に得られたアルファベットを選択してください。"
     },
     {
       id: "mission-3",
-      floor: "3F",
+      floor: "5F",
       title: "第3ミッション",
-      answer: "Q", // 正解のアルファベットに変更
+      answer: "L", // 正解のアルファベットに変更
       icon: "mission_3_icon.jpg",
       description: "【遊び方】\nここに第3ミッションのルールや、プレイする場所、注意事項などを記載します。\n\nプレイ後に得られたアルファベットを選択してください。"
     }
@@ -228,7 +228,7 @@ function updateCooldownUI() {
 
     $("modal-feedback").style.color = "#ff8d8d";
     $("modal-feedback").textContent =
-      "パスワードが違います。もう一度確認して下さい。" +
+      "パスワードが違います。" +
       ` 入力再開まで ${timeText}`;
 
     $("selection-status").textContent =
@@ -254,7 +254,7 @@ function updateCooldownUI() {
             "入力を再開できます。";
 
           $("selection-status").textContent =
-            "アルファベットを選択してください。";
+            "パスワードを入力してください。";
 
           letterGrid.querySelectorAll(".letter-button").forEach(
             (button) => {
