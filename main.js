@@ -41,7 +41,6 @@ const CONFIG = {
 };
 
 const STORAGE_KEY = "missionPortalProgress_v1";
-const COMPLETE_KEY = "missionPortalComplete_v1";
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const COOLDOWN_KEY = "missionPortalCooldowns_v1";
 const COOLDOWN_MS = 3 * 60 * 1000; // 3分間
@@ -63,11 +62,25 @@ function saveCooldowns() {
   }
 }
 
-// 前回のページが完全クリア済みなら、今回の読み込み時に初期化する
-if (localStorage.getItem(COMPLETE_KEY) === "true") {
-  localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(COOLDOWN_KEY);
-  localStorage.removeItem(COMPLETE_KEY);
+ // 保存されている進行状況を確認し、全ミッションクリア済みなら初期化
+try {
+  const savedProgress = JSON.parse(
+    localStorage.getItem(STORAGE_KEY) || "{}"
+  );
+
+  const wasAllCleared = CONFIG.missions.every(
+    (mission) => Boolean(savedProgress[mission.id])
+  );
+
+  if (wasAllCleared) {
+    // ミッションクリア状況を削除
+    localStorage.removeItem(STORAGE_KEY);
+
+    // クールタイム情報も削除
+    localStorage.removeItem(COOLDOWN_KEY);
+  }
+} catch (error) {
+  console.warn("進行状況を確認できませんでした。", error);
 }
 
 const state = {
