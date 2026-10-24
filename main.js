@@ -41,6 +41,7 @@ const CONFIG = {
 };
 
 const STORAGE_KEY = "missionPortalProgress_v1";
+const COMPLETE_KEY = "missionPortalComplete_v1";
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const COOLDOWN_KEY = "missionPortalCooldowns_v1";
 const COOLDOWN_MS = 3 * 60 * 1000; // 3分間
@@ -61,6 +62,14 @@ function saveCooldowns() {
     console.warn("クールタイムを保存できませんでした。", error);
   }
 }
+
+// 前回のページが完全クリア済みなら、今回の読み込み時に初期化する
+if (localStorage.getItem(COMPLETE_KEY) === "true") {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(COOLDOWN_KEY);
+  localStorage.removeItem(COMPLETE_KEY);
+}
+
 const state = {
   cleared: loadProgress(),
   cooldowns: loadCooldowns(),
