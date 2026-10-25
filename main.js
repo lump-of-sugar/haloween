@@ -16,7 +16,7 @@ const CONFIG = {
     {
       id: "mission-1",
       floor: "3F",
-      title: "吸血鬼の城",
+      title: "吸血鬼の館",
       answer: "J", // 正解のアルファベットに変更
       icon: "mission_1_icon.jpg",
       description: "【遊び方】\n無数のコウモリの中から吸血鬼の化けた本体を見つけ、十字架を突き付けろ！\n（他のチームにバレないように、見つけたらこっそり共有しよう）"
@@ -24,7 +24,7 @@ const CONFIG = {
     {
       id: "mission-2",
       floor: "4F",
-      title: "人狼の村",
+      title: "暗黒街の人狼",
       answer: "O", // 正解のアルファベットに変更
       icon: "mission_2_icon.jpg",
       description: "【遊び方】\n証言をもとに人間に紛れて夜を待つ狼男を見破り、銀の弾丸で撃ち抜け！"
