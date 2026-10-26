@@ -27,7 +27,7 @@ const CONFIG = {
       title: "暗黒街の人狼",
       answer: "O", // 正解のアルファベットに変更
       icon: "mission_2_icon.jpg",
-      description: "【遊び方】\n証言をもとに人間に紛れて夜を待つ狼男を見破り、銀の弾丸で撃ち抜け！"
+      description: "【遊び方】\n証言をもとに人間に紛れて夜を待つ人狼を見破り、銀の弾丸で撃ち抜け！"
     },
     {
       id: "mission-3",
